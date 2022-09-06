@@ -5,6 +5,7 @@ IDEA:   To convert Arithmetic string expression >  postfix > binary tree > compu
 ASSUME: -Balanced equation, meaning correct parernthesis
         -Correct symbols
         -Operands are int type not float
+        -No spaces in the input string
 '''
 
 from dfs_calc import dfs
@@ -14,7 +15,6 @@ from util import *
 def main():
     expression = input('Enter infix expression ')
     postFixString = infixToPostfix(expression)
-    # print(postFixString)
     headNode = strToTree(postFixString)
     print(dfs(headNode))
     print("Displaying Binary Tree in preorder fashion:")
