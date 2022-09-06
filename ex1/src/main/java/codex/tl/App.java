@@ -1,4 +1,4 @@
-package tl.codex.raphael;
+package codex.tl;
 
 /**
  * Hello world!

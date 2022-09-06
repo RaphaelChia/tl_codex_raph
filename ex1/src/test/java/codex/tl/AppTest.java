@@ -1,4 +1,4 @@
-package tl.codex.raphael;
+package codex.tl;
 
 import static org.junit.Assert.assertTrue;
 
