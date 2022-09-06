@@ -1,11 +1,31 @@
 '''
 @Author: Raphael Chia Song Zuo
 @Date: 5 September 2022
+
+LIMITATIONS:
+1)  Negative numbers will not work specifically if its at the start of the number like so:
+    (-4+2)
+    3*(-6+4)
+
+    This is due to the method of representing the arithmetic equation in a Binary Tree AT THE SAME TIME
+    using a depth first search to compute the Arithmetic Tree. An example is shown below:
+    An arithmetic of 4+(-2+8) is very different from 4+-(2+8), but the Arithmetic Tree representation 
+    of the data, coupled with using DFS to compute, makes it so that there's no way of differentiating 
+    between the 2 equations.
+
+Potential Solution:
+1)  We could implement a different way of representing the data
 '''
 # Assuming balanced equation
 # Assume that equation will always be in the simplest form, a {operand} b, 
-#   Never a {operand} b {operand} c    
+#   Never as such: a {operand} b {operand} c    
 # Assuming no decimals in string arithmetic input
+
+
+
+from constants import op_list
+from dfs_calc import dfs
+ 
 
 
 class Node:
@@ -16,6 +36,8 @@ class Node:
 
 op_list = {"+", "-", "/", "*"}
 def str_to_tree(s:str) -> Node:
+    if not s:
+        return None
     stack = []
     input_length = len(s) 
     i = 0 # current string index
@@ -32,8 +54,8 @@ def str_to_tree(s:str) -> Node:
         elif s[i]==')': 
 
             right_node = stack.pop() 
-            if stack[-2] in op_list:
-                # Checking if there are 2 arithmetic side by side
+            if stack[-2].data in op_list and stack[-2].left==None and stack[-2].right == None:
+                # Checking if there are 2 BASE arithmetic side by side
                 # accounting for negative numbers A.K.A (4/2)*-16
                 first_arithmetic_node = stack.pop() 
                 parent_node = stack[-1] # second arithmetic
@@ -67,10 +89,13 @@ def str_to_tree(s:str) -> Node:
        
 
     return stack[0]
-def main():
-    arithString = input("Input arithmetic string without spaces: ")
-    headNode = str_to_tree(arithString)
 
+
+def main():
+    arithmetic_string = input("Input arithmetic string without spaces: ")
+    headNode = str_to_tree(arithmetic_string)
+    print2D((headNode))
+    print(dfs(headNode))
 
 if __name__ == "__main__":
     main()
