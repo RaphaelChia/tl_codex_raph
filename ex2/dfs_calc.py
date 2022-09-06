@@ -1,9 +1,9 @@
 #Depth first search
-from constants import op_list
+from constants import Operators
 def dfs(current_node)->float:
     if not current_node:
         return 0
-    if current_node.data in op_list:
+    if current_node.data in Operators:
         return do_calculation(dfs(current_node.left), dfs(current_node.right), current_node.data)
     return current_node.data
 

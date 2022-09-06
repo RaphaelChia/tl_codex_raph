@@ -1,21 +1,40 @@
 import unittest
-import ex2v2 as ex2
+import ex2
 from dfs_calc import dfs
 
 class TextEx2(unittest.TestCase):
-    # def test_str2tree_correctResultRootNode(self):
-    #     self.assertEqual(ex2.strToTree("4+-2").data,"+")
-    #     self.assertEqual(ex2.strToTree("4-2").data,"-")
-    #     self.assertEqual(ex2.strToTree("((4*(2+10))+(3*4))+-16").data,"+")
-    #     self.assertEqual(ex2.strToTree("(4+-2)*(6/3)").data,"*")
 
-    # def test_ex2_correctEndToEnd(self):
-    #     self.assertEqual(dfs(ex2.strToTree("4+-2")),2.0)
-    #     self.assertEqual(dfs(ex2.strToTree("-4-2")),-6.0)
-    #     self.assertEqual(dfs(ex2.strToTree("((4*(2+10))+(3*4))+-16")),44.0)
-    #     self.assertEqual(dfs(ex2.strToTree("(4+-2)*(6/3)")),4.0)
+    @classmethod
+    def setUpClass(cls) -> None:
+        print("Starting All Tests...\n")
+        # unittest.main(verbosity=2)
 
-    def test_infix2Postfix_BoundaryTest(self):
-        self.assertEqual(ex2.infixToPostfix("4+-2"),"402-+")
-        self.assertEqual(ex2.infixToPostfix("4-(-9/4)"),"4094/--")
-        self.assertEqual(ex2.infixToPostfix("-6+(3-2)*9-3"),"06-32-9*+3-")
+    @classmethod
+    def tearDownClass(cls) -> None:
+        print("\nAll tests ended!")
+
+    def test_ex2End2EndSuccess_Brackets(self):
+        astr1 = "4+(3/(6*5))-4*8"
+        astr2 = "4-(3+0)"
+        astr3 = "((15/(7-(1+1)))*-3)-(2+(1+1))" # Default example
+        astr4 = "6*(-3+1)"
+        astr5 = "-(4-3)-(3*2)"
+        
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr1))),-27.9)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr2))),1)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr3))),-13)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr4))),-12)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr5))),-7)
+
+    def test_ex2End2EndSuccess_Chaining(self):
+        astr1 = "4+3/6*5-4*8"
+        astr2 = "4--3"
+        astr3 = "--4-3"
+        astr4 = "-4*-3+1"
+        astr5 = "-4-3-3*2"
+        
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr1))),-25.5)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr2))),7)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr3))),1)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr4))),13)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr5))),-13)
