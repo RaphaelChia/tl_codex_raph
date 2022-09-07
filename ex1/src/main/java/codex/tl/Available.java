@@ -9,7 +9,7 @@ public class Available implements IHotelRoomState{
     }
     @Override
     public void checkin() {
-        hr.currentState=hr.getAvailable();
+        hr.currentState=hr.getOccupied();
         System.out.println("Checked in successfully! It is now occupied.");
     }
 

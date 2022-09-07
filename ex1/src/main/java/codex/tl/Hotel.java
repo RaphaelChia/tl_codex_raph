@@ -19,19 +19,24 @@ public class Hotel {
         }
     }
 
-    public HotelRoom requestRoom(){
-        return null;
+    public void requestRoom(){
+        System.out.println("To implement requesting room");
     }
 
-    public void checkoutRoom(){
-
-    }
-
-    public void cleanRoom(){
+    public void checkoutRoom(HotelRoom hr){
+        System.out.println("To implement checkingout room");
 
     }
 
-    public void repairRoom(){
+    public void cleanRoom(HotelRoom hr){
+
+    }
+
+    public void markRoomForRepair(HotelRoom hr){
+
+    }
+
+    public void repairRoom(HotelRoom hr){
 
     }
 

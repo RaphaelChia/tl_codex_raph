@@ -1,7 +1,12 @@
 package codex.tl;
 
-public class HotelRoom {
+/**
+ * This class is created with the state design pattern.
+ * The 4 states are Available, Occupied, Repair, Vacant.
+ * The 5 Actions are Checkin, checkout, clean, take out of service, repair.
+ */
 
+public class HotelRoom {
 
     private String roomName;
 
