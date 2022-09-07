@@ -23,20 +23,20 @@ public class Hotel {
         System.out.println("To implement requesting room");
     }
 
-    public void checkoutRoom(HotelRoom hr){
+    public void checkoutRoom(String roomName){
         System.out.println("To implement checkingout room");
 
     }
 
-    public void cleanRoom(HotelRoom hr){
+    public void cleanRoom(String roomName){
 
     }
 
-    public void markRoomForRepair(HotelRoom hr){
+    public void markRoomForRepair(String roomName){
 
     }
 
-    public void repairRoom(HotelRoom hr){
+    public void repairRoom(String roomName){
 
     }
 

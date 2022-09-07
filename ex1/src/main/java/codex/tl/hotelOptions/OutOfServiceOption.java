@@ -9,6 +9,6 @@ public class OutOfServiceOption  extends Options {
 
     @Override
     public void doAction(Hotel h) {
-        h.markRoomForRepair();
+        h.markRoomForRepair("");
     }
 }

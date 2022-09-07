@@ -10,6 +10,6 @@ public class CheckoutOption extends Options {
 
     @Override
     public void doAction(Hotel h) {
-        h.checkoutRoom();
+        h.checkoutRoom("");
     }
 }

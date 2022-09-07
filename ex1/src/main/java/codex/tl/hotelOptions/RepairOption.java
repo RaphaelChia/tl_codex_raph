@@ -9,6 +9,6 @@ public class RepairOption  extends Options {
 
     @Override
     public void doAction(Hotel h) {
-        h.repairRoom();
+        h.repairRoom("");
     }
 }
