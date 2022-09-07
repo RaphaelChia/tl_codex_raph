@@ -3,6 +3,11 @@ TL Code Exercise Interview
 
 # EX1
 ## Setup pre-requisites:
+- Have Java 8 Installed
+- Double check by typing java --version in your console.
+- Have maven ready in your environment.
+- Double check by typing mvn --version in your console.
+- mvn compile exec:java "-Dexec.mainClass=codex.tl.App"
 ## Instructions:
 
 # EX2

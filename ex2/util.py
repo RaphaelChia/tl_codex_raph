@@ -30,7 +30,7 @@ def infixToPostfix(arithmeticString):
             while stack and stack[-1]!='(':
                 postfixStack.append(Node(stack.pop()))
             stack.pop() # This is to pop the opening bracket just before we finish matching the close bracket
-        elif character=='-' and (prev=='' or prev in Operators_without_closebracket) :
+        elif character=='-' and (prev=='' or prev in Operators_without_closebracket) : # To differentiate negate vs subtract
             postfixStack.append(Node('0'))
             stack.append(character)
         else: 
@@ -62,9 +62,8 @@ def strToTree(postFix: list)->Node:
             # pop 2 number nodes and make the root the operator
             n1 = stack.pop()
             n2 = stack.pop()
-            # append new node back into the stack. basically every 3 items will be combined
+            # append node back into the stack. basically every 3 items will be combined
             # into one single node. e.g. ab+ will end up as + as the root, a b as the left right.
-            # stack.append(Node(charNode.data,n2,n1))
             charNode.left=n2
             charNode.right=n1
             stack.append(charNode)
@@ -80,5 +79,3 @@ def preOrderTraverse(rootNode: Node):
     print(f"{rootNode.data} ",end='')
     preOrderTraverse(rootNode.left)
     preOrderTraverse(rootNode.right)
-
-

@@ -14,10 +14,10 @@ from util import *
 
 def main():
     expression = input('Enter infix expression ')
-    postFixString = infixToPostfix(expression)
-    headNode = strToTree(postFixString)
+    postfixList = infixToPostfix(expression)
+    headNode = strToTree(postfixList)
     print(dfs(headNode))
-    print("Displaying Binary Tree in preorder fashion:")
+    print("Displaying Binary Tree in preorder fashion:") 
     preOrderTraverse(headNode)
 
 if __name__ == "__main__":
