@@ -13,6 +13,9 @@ class TextEx2(unittest.TestCase):
     def tearDownClass(cls) -> None:
         print("\nAll tests ended!")
 
+
+    
+
     def test_ex2End2EndSuccess_Brackets(self):
         astr1 = "4+(3/(6*5))-4*8"
         astr2 = "4-(3+0)"
