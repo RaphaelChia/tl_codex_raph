@@ -86,5 +86,4 @@ Precedence of the operators was ok, but solving this problem took me the longest
 1. Run: `python -m unittest test_ex2.py -vvv`
 
 #### Python Unittest Results
-![python unittest1](https://user-images.githubusercontent.com/54928277/189202193-e0078a1b-c337-4c3d-b512-8ca972c67763.png)
-
+![image](https://user-images.githubusercontent.com/54928277/189203405-7710f93b-32b5-4759-b6f7-f3fd562c42f8.png)
