@@ -1,4 +1,4 @@
-package codex.tl;
+package codex.tl.states;
 
 public interface IHotelRoomState {
     void checkin();

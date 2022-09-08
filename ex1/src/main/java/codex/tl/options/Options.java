@@ -1,7 +1,10 @@
-package codex.tl.hotelOptions;
+package codex.tl.options;
 
-import codex.tl.Hotel;
-
+/**
+ * The Options class is made reusable in the event that we want to branch out to a different app,
+ * for e.g. an airplane seat booking app, we can create an AirplaneSeatOptions that extends this
+ * class
+ */
 public abstract class Options {
     private String option;
     private String optionMessage;
@@ -19,5 +22,5 @@ public abstract class Options {
         return option.equals(opt);
     }
 
-    public abstract void doAction(Hotel h);
+    public abstract void doAction();
 }

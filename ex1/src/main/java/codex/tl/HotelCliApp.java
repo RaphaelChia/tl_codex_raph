@@ -1,12 +1,16 @@
 package codex.tl;
 
-import codex.tl.hotelOptions.*;
+import codex.tl.options.*;
+import codex.tl.options.hotelOptions.*;
+import codex.tl.utils.InputOutput;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import static codex.tl.utils.Constants.errUnrecognizedCommand;
 
 /**
  * The idea of this class is based on the decorator design pattern.
@@ -26,12 +30,13 @@ public class HotelCliApp {
         this.reader = new BufferedReader(new InputStreamReader(System.in));
         this.welcomeMessage = welcomeMessage;
 
-        optionsList.add(new RequestRoomOption("1","Request for a room"));
-        optionsList.add(new CheckoutOption("2","Checkout a room"));
-        optionsList.add(new CleanRoomOption("3","Clean a room"));
-        optionsList.add(new OutOfServiceOption("4","Mark a room for repair"));
-        optionsList.add(new RepairOption("5","Repair a room"));
-        optionsList.add(new listRoomOption("6","List available rooms"));
+        optionsList.add(new RequestRoomOption("1","Request for a room",hotel));
+        optionsList.add(new CheckoutOption("2","Checkout a room",hotel));
+        optionsList.add(new CleanRoomOption("3","Clean a room",hotel));
+        optionsList.add(new OutOfServiceOption("4","Mark a room for repair",hotel));
+        optionsList.add(new RepairOption("5","Repair a room",hotel));
+        optionsList.add(new listRoomOption("6","List Available rooms",hotel));
+        optionsList.add(new listVacantRoomOption("7","List vacant rooms",hotel));
     }
 
     private void printWelcomeMessage(){
@@ -39,6 +44,8 @@ public class HotelCliApp {
     }
 
     private void printCommandPromptMessage(){
+        System.out.printf("%nPlease pick an option:%n");
+        System.out.printf("%s) Exit%n",EXITCODE);
         for(Options o:optionsList){
            o.displayMessage();
         }
@@ -46,43 +53,25 @@ public class HotelCliApp {
 
     public void run() throws IOException {
         String command = "";
+        InputOutput.clearScreen();
         printWelcomeMessage();
-
         do{
+            boolean commandRecognized = false;
             printCommandPromptMessage();
             command = reader.readLine();
+            if(command.equals(EXITCODE)){
+                System.out.println("Goodbye!");
+               break;
+            }
             // Matching the commands
             for(Options o:optionsList){
                 if(o.isMatch(command)) {
-                    o.doAction(hotel);
+                    o.doAction();
+                    commandRecognized=true;
                 }
             }
-        }while(!command.equals(EXITCODE));
-
-//        do{
-//            try {
-//                printCommandPromptMessage();
-//                command = reader.readLine();
-//                if(command.equals("0")) break;
-//                switch (command){
-//                    case "1":
-//                        break;
-//                    case "2":
-//                        break;
-//                    case "3":
-//                        break;
-//                    case "4":
-//                        break;
-//                    case "9":
-//                        hotel.listAvailableRooms();
-//                        break;
-//                    default:
-//                        System.out.println(errUnrecognizedCommand);
-//                }
-//            } catch (IOException e) {
-//                System.out.println(errUnrecognizedCommand);
-//            }
-//        }while(true);
+            if(!commandRecognized)System.out.println(errUnrecognizedCommand);
+        }while(true);
     }
 
     @Override

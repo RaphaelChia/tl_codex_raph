@@ -1,5 +1,7 @@
 package codex.tl;
 
+import codex.tl.states.*;
+
 /**
  * This class is created with the state design pattern.
  * The 4 states are Available, Occupied, Repair, Vacant.
@@ -15,7 +17,7 @@ public class HotelRoom {
     private final IHotelRoomState repair;
     private final IHotelRoomState vacant;
 
-    IHotelRoomState currentState;
+    private IHotelRoomState currentState;
 
     public HotelRoom(String roomName){
         this.available = new Available(this);
@@ -50,5 +52,13 @@ public class HotelRoom {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public IHotelRoomState getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(IHotelRoomState currentState) {
+        this.currentState = currentState;
     }
 }

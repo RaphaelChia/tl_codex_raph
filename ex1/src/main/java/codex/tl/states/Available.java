@@ -1,4 +1,6 @@
-package codex.tl;
+package codex.tl.states;
+
+import codex.tl.HotelRoom;
 
 public class Available implements IHotelRoomState{
 
@@ -9,7 +11,8 @@ public class Available implements IHotelRoomState{
     }
     @Override
     public void checkin() {
-        hr.currentState=hr.getOccupied();
+        hr.setCurrentState(hr.getOccupied());
+        System.out.printf("You've got room %s!%n",hr.getRoomName());
         System.out.println("Checked in successfully! It is now occupied.");
     }
 

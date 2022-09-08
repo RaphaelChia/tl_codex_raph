@@ -1,4 +1,6 @@
-package codex.tl;
+package codex.tl.states;
+
+import codex.tl.HotelRoom;
 
 public class Vacant implements IHotelRoomState{
 
@@ -20,13 +22,13 @@ public class Vacant implements IHotelRoomState{
 
     @Override
     public void clean() {
-        hr.currentState=hr.getAvailable();
+        hr.setCurrentState(hr.getAvailable());
         System.out.println("Cleaned a vacant room successfully! It is now Available.");
     }
 
     @Override
     public void outOfService() {
-        hr.currentState=hr.getRepair();
+        hr.setCurrentState(hr.getRepair());
         System.out.println("Took a vacant room out of service. It is now under Repair.");
     }
 

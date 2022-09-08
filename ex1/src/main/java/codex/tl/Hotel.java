@@ -1,5 +1,11 @@
 package codex.tl;
 
+import codex.tl.exceptions.InvalidHotelRoomException;
+import codex.tl.states.Available;
+import codex.tl.states.Vacant;
+import codex.tl.utils.Constants;
+import static codex.tl.utils.InputOutput.clearScreen;
+
 public class Hotel {
     public HotelRoom[] rooms;
 
@@ -19,35 +25,98 @@ public class Hotel {
         }
     }
 
+    /**
+     * Function uses an o(n) time complexity traversal to look for the nearest available room
+     */
     public void requestRoom(){
-        System.out.println("To implement requesting room");
+        boolean roomFound = false;
+        for(HotelRoom room:rooms){
+            if(room.getCurrentState() instanceof Available){
+                room.getCurrentState().checkin();
+                roomFound=true;
+                break;
+            }
+
+        }
+        if(!roomFound){
+            System.out.println(Constants.errNoAvailableRooms);
+        }
     }
 
     public void checkoutRoom(String roomName){
-        System.out.println("To implement checkingout room");
-
+        try{
+            HotelRoom room = getRoomFromName(roomName);
+            room.getCurrentState().checkout();
+        }catch(InvalidHotelRoomException ihrEx){
+            System.out.println(ihrEx.getMessage());
+        }
     }
 
     public void cleanRoom(String roomName){
+        try{
+            HotelRoom room = getRoomFromName(roomName);
+            room.getCurrentState().clean();
+        }catch(InvalidHotelRoomException ihrEx){
+            System.out.println(ihrEx.getMessage());
+        }
 
     }
 
     public void markRoomForRepair(String roomName){
+        try{
+            HotelRoom room = getRoomFromName(roomName);
+            room.getCurrentState().outOfService();
+        }catch(InvalidHotelRoomException ihrEx){
+            System.out.println(ihrEx.getMessage());
+        }
 
     }
 
     public void repairRoom(String roomName){
+        try{
+            HotelRoom room = getRoomFromName(roomName);
+            room.getCurrentState().repaired();
+        }catch(InvalidHotelRoomException ihrEx){
+            System.out.println(ihrEx.getMessage());
+        }
 
     }
 
     public void listAvailableRooms(){
+        clearScreen();
         System.out.println("Available rooms:");
         for(HotelRoom room:rooms){
-            if(room.currentState instanceof Available){
+            if(room.getCurrentState() instanceof Available){
                 System.out.printf("%s ",room.getRoomName());
             }
         }
-        System.out.println("\n");
+        System.out.println("");
+    }
+
+    public void listVacantRooms(){
+        clearScreen();
+        System.out.println("Vacant rooms:");
+        for(HotelRoom room:rooms){
+            if(room.getCurrentState() instanceof Vacant){
+                System.out.printf("%s ",room.getRoomName());
+            }
+        }
+        System.out.println("");
+    }
+
+    /**
+     * To retrieve a room object from the list starting from the nearest to the door.
+     * It uses a normal list traversal with complexity o(n).
+     * @param roomName the name of the room e.g. 2E
+     * @return HotelRoom object if found, else null
+     */
+    private HotelRoom getRoomFromName(String roomName) throws InvalidHotelRoomException {
+        for(HotelRoom room:rooms){
+            if(room.getRoomName().equals(roomName)){
+                return room;
+            }
+        }
+        throw new InvalidHotelRoomException(Constants.errInvalidRoomName);
     }
 
 }
