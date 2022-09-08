@@ -1,8 +1,15 @@
 # tl_codex_raphael
 ### Table of Contents
-[Question 1](#ex1---the-nearest-available-room)
-[Question 2](#ex2)
+- [Question 1](#ex1---the-nearest-available-room)
+  - [Design Considerations](#application-design-considerations)
+  - [pre-req](#setup-pre-requisites)
+  - [Instructions](#instructions)
+- [Question 2](#ex2)
+  - [The big Problem](#the-big-problem-negation-vs-subtraction)
+  - [pre-req](#setup-pre-requisites-1)
+  - [Instructions](#instructions-1)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 # EX1 - The Nearest Available Room
 When reading the question, there are 3 things that came to my mind:
 1. Can i think of an algorithm to find the nearest available room?
