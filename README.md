@@ -1,7 +1,9 @@
 # tl_codex_raphael
-TL Code Exercise Interview
+### Table of Contents
+[Question 1](#ex1---the-nearest-available-room)
+[Question 2](#ex2)
 
-# EX1 - The Nearest Available Hotel Room
+# EX1 - The Nearest Available Room
 When reading the question, there are 3 things that came to my mind:
 1. Can i think of an algorithm to find the nearest available room?
 1. How do i manage the states?
