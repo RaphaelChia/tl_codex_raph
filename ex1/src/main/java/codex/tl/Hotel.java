@@ -12,7 +12,7 @@ import static codex.tl.utils.InputOutput.clearScreen;
  *
  */
 public class Hotel {
-    public HotelRoom[] rooms;
+    private final HotelRoom[] rooms;
 
     public Hotel() {
         int maxNumPrefix    = 4;
@@ -33,80 +33,87 @@ public class Hotel {
     /**
      * Function will take in no argument, look for the nearest empty room, and automatically
      * assign the room, and changes its state to occupied.
-     * Function uses an o(n) time complexity traversal to look for the nearest available room
+     * Function uses an o(n) time complexity traversal to look for the nearest available room.
+     * @return HotelRoom Returning an object even though its not used, so that it's more testable
      */
-    public void requestRoom(){
-        boolean roomFound = false;
+    public HotelRoom requestRoom(){
         for(HotelRoom room:rooms){
             if(room.getCurrentState() instanceof Available){
                 room.getCurrentState().checkin();
-                roomFound=true;
-                break;
+                return room;
             }
 
         }
-        if(!roomFound){
-            System.out.println(Constants.errNoAvailableRooms);
-        }
+        System.out.println(Constants.errNoAvailableRooms);
+        return null;
     }
 
     /**
      * Function takes in a room name, get the room object associated with the room name,
      * and checks it out.
      * @param roomName then room name in this format e.g. 2E
+     * @return HotelRoom Returning an object even though its not used, so that it's more testable
      */
-    public void checkoutRoom(String roomName){
+    public HotelRoom checkoutRoom(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);
             room.getCurrentState().checkout();
+            return room;
         }catch(InvalidHotelRoomException ihrEx){
             System.out.println(ihrEx.getMessage());
         }
+        return null;
     }
 
     /**
      * Function takes in a room name, get the room object associated with the room name,
      * and cleans it.
      * @param roomName then room name in this format e.g. 2E
+     * @return HotelRoom Returning an object even though its not used, so that it's more testable
      */
-    public void cleanRoom(String roomName){
+    public HotelRoom cleanRoom(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);
             room.getCurrentState().clean();
+            return room;
         }catch(InvalidHotelRoomException ihrEx){
             System.out.println(ihrEx.getMessage());
         }
-
+        return null;
     }
 
     /**
      * Function takes in a room name, get the room object associated with the room name,
      * and mark it for repair
      * @param roomName then room name in this format e.g. 2E
+     * @return HotelRoom Returning an object even though its not used, so that it's more testable
      */
-    public void markRoomForRepair(String roomName){
+    public HotelRoom markRoomForRepair(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);
             room.getCurrentState().outOfService();
+            return room;
         }catch(InvalidHotelRoomException ihrEx){
             System.out.println(ihrEx.getMessage());
         }
-
+        return null;
     }
 
     /**
      * Function takes in a room name, get the room object associated with the room name,
      * and repairs room
      * @param roomName then room name in this format e.g. 2E
+     * @return HotelRoom Returning an object even though its not used, so that it's more testable
      */
-    public void repairRoom(String roomName){
+    public HotelRoom repairRoom(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);
             room.getCurrentState().repaired();
+            return room;
         }catch(InvalidHotelRoomException ihrEx){
             System.out.println(ihrEx.getMessage());
         }
-
+        return null;
     }
 
     public void listAvailableRooms(){
@@ -144,6 +151,10 @@ public class Hotel {
             }
         }
         throw new InvalidHotelRoomException(Constants.errInvalidRoomName);
+    }
+
+    public HotelRoom[] getRooms(){
+        return this.rooms;
     }
 
 }

@@ -6,6 +6,7 @@ import codex.tl.entity.options.Options;
 
 /**
  * If we want to add more hotel options, we can simply create more options class that extends this HotelOptions class.
+ * In the future, its possible to expand the app and create AirplaneBookingOptions etc.
  */
 public abstract class HotelOptions extends Options {
 
