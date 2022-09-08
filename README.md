@@ -11,7 +11,7 @@ When reading the question, there are 3 things that came to my mind:
 After giving some thought about time and space complexity, trying using as little space to represent the hotel rooms, i decided to roll with a 1 Dimensional Fixed Array. The mode of finding the nearest available room is a simple traversal of the array, which has a time complexity of o(n).
 
 #### State Management
-To manage the states, i engaged the **state design pattern** to allow a class to 'morph' into multiple different states and allow different actions depending on the state.
+To manage the states, I engaged the **state design pattern** to allow a class to 'morph' into multiple different states and allow different actions depending on the state.
 
 #### Input Output
 Since we have to allow multiple input commands repititively, i decided to go with a menu-option CLI type application.
