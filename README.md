@@ -39,9 +39,19 @@ Since we have to allow multiple input commands repititively, i decided to go wit
 1. Navigate to ex1 folder
 1. Run in the console: `mvn clean compile exec:java "-Dexec.mainClass=codex.tl.App"`
 
+#### Ex1 Sample
+
+![Requesting Room](https://user-images.githubusercontent.com/54928277/189200590-4745c0eb-b42e-4810-ba7f-68de4e9380f3.png) 
+![Request Successful](https://user-images.githubusercontent.com/54928277/189200750-74418551-382d-4bc4-b9e1-9f4fbeb959f0.png)
+![Mark repair Failed](https://user-images.githubusercontent.com/54928277/189201303-57f0666c-730e-4f2f-8025-de7d5b3798fa.png)
+
+
 #### Running JUnit Tests:
 1. Navigate to ex1 folder
 1. Run in the console: `mvn clean test`
+
+#### Junit test Results:
+![demo](https://user-images.githubusercontent.com/54928277/189200226-44b69456-49dc-4141-ace9-32bf5a2d58da.png)
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -66,6 +76,15 @@ Precedence of the operators was ok, but solving this problem took me the longest
 1. Navigate into ex2 folder 
 1. Run the command `python ex2.py`
 
+#### Ex2 Sample
+
+![Example1](https://user-images.githubusercontent.com/54928277/189201910-65d4f1d4-74ef-44d3-b174-cf0efde58fb1.png)
+![Example2](https://user-images.githubusercontent.com/54928277/189202010-9f6b6f53-36a6-4292-b1ec-7ae04fe1b546.png)
+
 #### Running python unittest:
 1. Navigate into ex2 folder 
 1. Run: `python -m unittest test_ex2.py -vvv`
+
+#### Python Unittest Results
+![python unittest1](https://user-images.githubusercontent.com/54928277/189202193-e0078a1b-c337-4c3d-b512-8ca972c67763.png)
+
