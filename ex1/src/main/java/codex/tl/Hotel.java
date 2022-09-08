@@ -6,6 +6,11 @@ import codex.tl.states.Vacant;
 import codex.tl.utils.Constants;
 import static codex.tl.utils.InputOutput.clearScreen;
 
+/**
+ * This is the hotel that contains the hotelrooms.
+ * This hotel has afew method to support the day to day operations of the hotel.
+ *
+ */
 public class Hotel {
     public HotelRoom[] rooms;
 
@@ -26,6 +31,8 @@ public class Hotel {
     }
 
     /**
+     * Function will take in no argument, look for the nearest empty room, and automatically
+     * assign the room, and changes its state to occupied.
      * Function uses an o(n) time complexity traversal to look for the nearest available room
      */
     public void requestRoom(){
@@ -43,6 +50,11 @@ public class Hotel {
         }
     }
 
+    /**
+     * Function takes in a room name, get the room object associated with the room name,
+     * and checks it out.
+     * @param roomName then room name in this format e.g. 2E
+     */
     public void checkoutRoom(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);
@@ -52,6 +64,11 @@ public class Hotel {
         }
     }
 
+    /**
+     * Function takes in a room name, get the room object associated with the room name,
+     * and cleans it.
+     * @param roomName
+     */
     public void cleanRoom(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);
@@ -62,6 +79,11 @@ public class Hotel {
 
     }
 
+    /**
+     * Function takes in a room name, get the room object associated with the room name,
+     * and mark it for repair
+     * @param roomName
+     */
     public void markRoomForRepair(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);
@@ -72,6 +94,11 @@ public class Hotel {
 
     }
 
+    /**
+     * Function takes in a room name, get the room object associated with the room name,
+     * and repairs room
+     * @param roomName
+     */
     public void repairRoom(String roomName){
         try{
             HotelRoom room = getRoomFromName(roomName);

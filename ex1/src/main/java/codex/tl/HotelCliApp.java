@@ -36,7 +36,7 @@ public class HotelCliApp {
         optionsList.add(new OutOfServiceOption("4","Mark a room for repair",hotel));
         optionsList.add(new RepairOption("5","Repair a room",hotel));
         optionsList.add(new listRoomOption("6","List Available rooms",hotel));
-        optionsList.add(new listVacantRoomOption("7","List vacant rooms",hotel));
+        optionsList.add(new listVacantRoomOption("7","List Vacant rooms",hotel));
     }
 
     private void printWelcomeMessage(){

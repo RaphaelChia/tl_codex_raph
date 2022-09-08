@@ -3,6 +3,10 @@ package codex.tl.options.hotelOptions;
 import codex.tl.Hotel;
 import codex.tl.options.Options;
 
+
+/**
+ * If we want to add more hotel options, we can just extend this HotelOptions class.
+ */
 public abstract class HotelOptions extends Options {
 
     private Hotel hotel;
