@@ -7,8 +7,9 @@ TL Code Exercise Interview
 - Double check by typing java --version in your console.
 - Have maven ready in your environment.
 - Double check by typing mvn --version in your console.
-- mvn compile exec:java "-Dexec.mainClass=codex.tl.App"
 ## Instructions:
+- Navigate to ex1 folder
+- Run in the console: `mvn clean compile exec:java "-Dexec.mainClass=codex.tl.App"`
 
 # EX2
 ## Setup pre-requisites:

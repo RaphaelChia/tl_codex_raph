@@ -1,18 +1,18 @@
-package codex.tl.states;
+package codex.tl.entity.states;
 
 import codex.tl.HotelRoom;
 
 public class Available implements IHotelRoomState{
 
-    private HotelRoom hr;
+    private final HotelRoom hotelRoom;
 
-    public Available(HotelRoom hr){
-        this.hr = hr;
+    public Available(HotelRoom hotelRoom){
+        this.hotelRoom = hotelRoom;
     }
     @Override
     public void checkin() {
-        hr.setCurrentState(hr.getOccupied());
-        System.out.printf("You've got room %s!%n",hr.getRoomName());
+        hotelRoom.setCurrentState(hotelRoom.getOccupied());
+        System.out.printf("You've got room %s!%n", hotelRoom.getRoomName());
         System.out.println("Checked in successfully! It is now occupied.");
     }
 

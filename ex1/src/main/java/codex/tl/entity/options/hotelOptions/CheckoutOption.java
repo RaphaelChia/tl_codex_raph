@@ -1,4 +1,4 @@
-package codex.tl.options.hotelOptions;
+package codex.tl.entity.options.hotelOptions;
 
 import codex.tl.Hotel;
 import codex.tl.utils.Constants;
@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class CheckoutOption extends HotelOptions {
 
-    public CheckoutOption(String option, String optionMessage,Hotel h) {
-        super(option, optionMessage,h);
+    public CheckoutOption(String option, String optionMessage,Hotel hotel) {
+        super(option, optionMessage,hotel);
     }
 
     @Override

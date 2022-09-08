@@ -1,14 +1,14 @@
 package codex.tl;
 
 import codex.tl.exceptions.InvalidHotelRoomException;
-import codex.tl.states.Available;
-import codex.tl.states.Vacant;
+import codex.tl.entity.states.Available;
+import codex.tl.entity.states.Vacant;
 import codex.tl.utils.Constants;
 import static codex.tl.utils.InputOutput.clearScreen;
 
 /**
  * This is the hotel that contains the hotelrooms.
- * This hotel has afew method to support the day to day operations of the hotel.
+ * This hotel has a few method to support the day-to-day operations of the hotel.
  *
  */
 public class Hotel {
@@ -67,7 +67,7 @@ public class Hotel {
     /**
      * Function takes in a room name, get the room object associated with the room name,
      * and cleans it.
-     * @param roomName
+     * @param roomName then room name in this format e.g. 2E
      */
     public void cleanRoom(String roomName){
         try{
@@ -82,7 +82,7 @@ public class Hotel {
     /**
      * Function takes in a room name, get the room object associated with the room name,
      * and mark it for repair
-     * @param roomName
+     * @param roomName then room name in this format e.g. 2E
      */
     public void markRoomForRepair(String roomName){
         try{
@@ -97,7 +97,7 @@ public class Hotel {
     /**
      * Function takes in a room name, get the room object associated with the room name,
      * and repairs room
-     * @param roomName
+     * @param roomName then room name in this format e.g. 2E
      */
     public void repairRoom(String roomName){
         try{
@@ -117,7 +117,7 @@ public class Hotel {
                 System.out.printf("%s ",room.getRoomName());
             }
         }
-        System.out.println("");
+        System.out.println();
     }
 
     public void listVacantRooms(){
@@ -128,7 +128,7 @@ public class Hotel {
                 System.out.printf("%s ",room.getRoomName());
             }
         }
-        System.out.println("");
+        System.out.println();
     }
 
     /**

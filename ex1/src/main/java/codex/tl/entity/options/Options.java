@@ -1,4 +1,4 @@
-package codex.tl.options;
+package codex.tl.entity.options;
 
 /**
  * The Options class is made reusable in the event that we want to branch out to a different app,
@@ -6,8 +6,8 @@ package codex.tl.options;
  * class
  */
 public abstract class Options {
-    private String option;
-    private String optionMessage;
+    private final String option;
+    private final String optionMessage;
 
     public Options(String option,String optionMessage){
         this.option=option;

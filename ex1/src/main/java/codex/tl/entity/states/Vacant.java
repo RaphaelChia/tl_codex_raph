@@ -1,13 +1,13 @@
-package codex.tl.states;
+package codex.tl.entity.states;
 
 import codex.tl.HotelRoom;
 
 public class Vacant implements IHotelRoomState{
 
-    private HotelRoom hr;
+    private final HotelRoom hotelRoom;
 
-    public Vacant(HotelRoom hr){
-        this.hr = hr;
+    public Vacant(HotelRoom hotelRoom){
+        this.hotelRoom = hotelRoom;
     }
 
     @Override
@@ -22,13 +22,13 @@ public class Vacant implements IHotelRoomState{
 
     @Override
     public void clean() {
-        hr.setCurrentState(hr.getAvailable());
+        hotelRoom.setCurrentState(hotelRoom.getAvailable());
         System.out.println("Cleaned a vacant room successfully! It is now Available.");
     }
 
     @Override
     public void outOfService() {
-        hr.setCurrentState(hr.getRepair());
+        hotelRoom.setCurrentState(hotelRoom.getRepair());
         System.out.println("Took a vacant room out of service. It is now under Repair.");
     }
 

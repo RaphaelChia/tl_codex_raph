@@ -24,6 +24,12 @@ public class InputOutput {
         return instance;
     }
 
+    /**
+     * Usage:   To use this function from elsewhere, below shows and example of how it can be done:
+     *          String line = InputOutput.getInstance().readSingleLine();
+     * @return  a string of user input
+     * @throws IOException default built-in IOException
+     */
     public String readSingleLine() throws IOException{
         String line;
         line = reader.readLine();

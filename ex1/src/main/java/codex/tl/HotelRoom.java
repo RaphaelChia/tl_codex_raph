@@ -1,6 +1,7 @@
 package codex.tl;
 
-import codex.tl.states.*;
+
+import codex.tl.entity.states.*;
 
 /**
  * This class is created with the state design pattern.
@@ -20,10 +21,10 @@ public class HotelRoom {
     private IHotelRoomState currentState;
 
     public HotelRoom(String roomName){
-        this.available = new Available(this);
-        this.occupied = new Occupied(this);
-        this.repair = new Repair(this);
-        this.vacant = new Vacant(this);
+        this.available  = new Available(this);
+        this.occupied   = new Occupied(this);
+        this.repair     = new Repair(this);
+        this.vacant     = new Vacant(this);
 
         this.currentState = this.available;
 
