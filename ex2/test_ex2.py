@@ -41,3 +41,23 @@ class TextEx2(unittest.TestCase):
         self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr3))),1)
         self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr4))),13)
         self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr5))),-13)
+
+    def test_ex2End2EndSuccess_OperatorPrecedence(self):
+        astr1 = "4+6*2"
+        astr2 = "(4+6)*2"
+        astr3 = "4/2+3/5"
+        astr4 = "(4/2+3)/5"
+        
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr1))),16)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr2))),20)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr3))),2.6)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr4))),1)
+
+    def test_ex2End2EndSuccess_NegationSubtraction(self):
+        astr1 = "-4-2"
+        astr2 = "-4-(-2)"
+        astr3 = "--6-2"
+        
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr1))),-6)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr2))),-2)
+        self.assertEqual(dfs(ex2.strToTree(ex2.infixToPostfix(astr3))),4)
