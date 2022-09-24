@@ -1,6 +1,7 @@
 package codex.tl;
 
 import codex.tl.entity.options.hotelOptions.*;
+import codex.tl.utils.InputOutput;
 
 import java.io.IOException;
 
@@ -24,5 +25,6 @@ public class App
             .addOptionToList(new ListRoomOption("6","List Available rooms",hotel))
             .addOptionToList(new ListVacantRoomOption("7","List Vacant rooms",hotel))
             .run();
+        InputOutput.getInstance().closeResources();
     }
 }

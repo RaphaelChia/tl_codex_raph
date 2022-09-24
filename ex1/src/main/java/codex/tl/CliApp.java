@@ -18,7 +18,7 @@ import static codex.tl.utils.Constants.errUnrecognizedCommand;
  */
 public class CliApp {
     private final String welcomeMessage;
-    private final List<HotelOptions> optionsList;
+    private final List<Options> optionsList;
     private final String EXITCODE="0";
 
     public CliApp(String welcomeMessage){
@@ -26,7 +26,7 @@ public class CliApp {
         this.welcomeMessage = welcomeMessage;
     }
 
-    public CliApp addOptionToList(HotelOptions opt){
+    public CliApp addOptionToList(Options opt){
         this.optionsList.add(opt);
         return this;
     }

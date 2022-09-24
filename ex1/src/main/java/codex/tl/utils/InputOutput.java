@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 
 public class InputOutput {
     public static InputOutput instance;
-    private final BufferedReader reader;
+    private BufferedReader reader;
     private InputOutput(BufferedReader reader){
         this.reader = reader;
     }
@@ -43,8 +43,19 @@ public class InputOutput {
         }
     }
 
+    public void closeResources(){
+        try {
+            this.reader.close();
+            this.reader=null;
+        } catch(IOException ex){
+            System.out.println("Failure closing stream of reader");
+        }
+    }
+
     @Override
     protected void finalize() throws IOException {
-        if(reader!=null)reader.close();
+        if(reader!=null){
+            reader.close();
+        }
     }
 }

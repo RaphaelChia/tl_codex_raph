@@ -13,21 +13,43 @@ import static codex.tl.utils.InputOutput.clearScreen;
  */
 public class Hotel {
     private final HotelRoom[] rooms;
+    int maxNumPrefix;
+    char maxCharPostfix;
 
     public Hotel() {
-        int maxNumPrefix    = 4;
-        char maxCharPostfix = 'E';
+        this.maxNumPrefix   =4;
+        this.maxCharPostfix ='E';
         int numRooms        = maxNumPrefix*((int)maxCharPostfix-64);
         this.rooms          = new HotelRoom[numRooms];
 
         // Initializing the room with 'new' keyword and respective room names
         int roomIdx=0;
         for(int i=1;i<=maxNumPrefix && roomIdx<numRooms;i++){
-            for(int j=4;j>=0;j--){
-                this.rooms[roomIdx]=new HotelRoom(String.format("%d%c",i,maxCharPostfix-j));
+            for(int j=maxCharPostfix-'A';j>=0;j--){
+                if(i%2==1) // Going A to E
+                    this.rooms[roomIdx]=new HotelRoom(String.format("%d%c",i,maxCharPostfix-j));
+                else // Going E to A
+                    this.rooms[roomIdx]=new HotelRoom(String.format("%d%c",i,'A'+j));
                 roomIdx++;
             }
         }
+    }
+
+    //Unsed functions for testability
+    public int getMaxNumPrefix() {
+        return maxNumPrefix;
+    }
+
+    public void setMaxNumPrefix(int maxNumPrefix) {
+        this.maxNumPrefix = maxNumPrefix;
+    }
+
+    public char getMaxCharPostfix() {
+        return maxCharPostfix;
+    }
+
+    public void setMaxCharPostfix(char maxCharPostfix) {
+        this.maxCharPostfix = maxCharPostfix;
     }
 
     /**
@@ -156,5 +178,6 @@ public class Hotel {
     public HotelRoom[] getRooms(){
         return this.rooms;
     }
+
 
 }
