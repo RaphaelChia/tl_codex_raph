@@ -13,10 +13,12 @@ import static codex.tl.utils.InputOutput.clearScreen;
  */
 public class Hotel {
     private final HotelRoom[] rooms;
+    int maxNumPrefix;
+    char maxCharPostfix;
 
     public Hotel() {
-        int maxNumPrefix    = 4;
-        char maxCharPostfix = 'K';
+        this.maxNumPrefix   =4;
+        this.maxCharPostfix ='E';
         int numRooms        = maxNumPrefix*((int)maxCharPostfix-64);
         this.rooms          = new HotelRoom[numRooms];
 
@@ -31,6 +33,23 @@ public class Hotel {
                 roomIdx++;
             }
         }
+    }
+
+    //Unsed functions for testability
+    public int getMaxNumPrefix() {
+        return maxNumPrefix;
+    }
+
+    public void setMaxNumPrefix(int maxNumPrefix) {
+        this.maxNumPrefix = maxNumPrefix;
+    }
+
+    public char getMaxCharPostfix() {
+        return maxCharPostfix;
+    }
+
+    public void setMaxCharPostfix(char maxCharPostfix) {
+        this.maxCharPostfix = maxCharPostfix;
     }
 
     /**
